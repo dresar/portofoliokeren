@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<!-- Atribut data-lang dan data-theme diatur ke default Indonesia & Gelap -->
+<html lang="id" data-lang="id" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Meta Tag Spesifik Bahasa (akan diisi oleh JS, konten awal placeholder Indonesia) -->
+    <meta name="description" data-lang-key="meta_description" content="Portofolio Profesional - Menampilkan keahlian, proyek, dan pengalaman.">
+    <meta name="keywords" data-lang-key="meta_keywords" content="portofolio, pengembang, desainer, proyek, keahlian, pengalaman, web, mobile, ui, ux">
+    <meta name="author" content="Eka Syarif Maulana (Didesain oleh AI)">
+
+    <!-- Favicons (Gunakan dari referensi atau tambahkan yang baru) -->
+    <link rel="icon" href="images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#2d3748"> <!-- Contoh warna tile -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"> <!-- Warna tema mode terang -->
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a202c"> <!-- Warna tema mode gelap -->
+
+
+    <!-- Judul Halaman (akan diisi oleh JS, konten awal placeholder Indonesia) -->
+    <title data-lang-key="meta_title">Eka Syarif Maulana - Portofolio</title>
+
+    <!-- === Berkas CSS === -->
+    <!-- CSS Pihak Ketiga (Font Awesome, dll.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts (Contoh: Inter dan Space Grotesk) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Kustom -->
+    <link rel="stylesheet" href="css/main.css">
+
+
+    <!-- === Berkas JavaScript (Defer untuk performa) === -->
+    <!-- Library (Contoh: GSAP untuk animasi) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" defer></script>
+
+    <!-- Data Bahasa -->
+    <script src="js/lang/id.js" defer></script> <!-- Muat bahasa Indonesia dulu -->
+    <script src="js/lang/en.js" defer></script>
+
+    <!-- Skrip Kustom -->
+    
+    <script src="js/main.js" defer></script> <!-- Skrip utama harus setelah langSwitcher -->
+    
+</head>
+
+<body class="preload"> <!-- Class 'preload' untuk mencegah animasi saat load -->
+
+    
+
+    <!-- Kursor Kustom Mulai -->
+    <div class="custom-cursor-outer"></div> <!-- Lingkaran luar kursor -->
+    <div class="custom-cursor-inner"></div> <!-- Titik dalam kursor -->
+    <!-- Kursor Kustom Selesai -->
+
+    <!-- Header Situs Mulai -->
+    <header class="site-header glass-effect" id="site-header"> <!-- Efek kaca untuk header -->
+        <div class="container header-container">
+            <!-- Logo -->
+            <div class="logo header-logo">
+                <a href="#hero" aria-label="Beranda">
+                    <!-- Contoh logo SVG yang lebih kompleks -->
+                    <svg class="logo-svg" width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="5" fill="none" />
+                        <text x="50" y="62" font-family="'Space Grotesk', sans-serif" font-size="40" fill="currentColor" text-anchor="middle" font-weight="bold">ESM</text>
+                    </svg>
+                    <span class="logo-text-full" data-lang-key="logo_text">Eka S. Maulana</span>
+                </a>
+            </div>
+
+            <!-- Navigasi Desktop -->
+            <nav class="navigation desktop-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#hero" class="nav-link active" data-lang-key="nav_home">Beranda</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link" data-lang-key="nav_about">Tentang</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link" data-lang-key="nav_skills">Keahlian</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link" data-lang-key="nav_portfolio">Portofolio</a></li>
+                    <li class="nav-item"><a href="#experience" class="nav-link" data-lang-key="nav_experience">Perjalanan</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link" data-lang-key="nav_services">Layanan</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link" data-lang-key="nav_contact">Kontak</a></li>
+                </ul>
+            </nav>
+
+            <!-- Kontrol Header (Toggle Tema, Pengalih Bahasa, Toggle Menu Mobile) -->
+            <div class="header-controls">
+                <!-- Tombol Toggle Tema -->
+                <button class="theme-toggle-btn icon-btn" id="theme-toggle" aria-label="Ubah tema">
+                    <!-- Ikon akan diubah oleh CSS/JS sesuai tema -->
+                    <i class="fas fa-sun light-icon"></i> <!-- Ikon untuk mode terang -->
+                    <i class="fas fa-moon dark-icon"></i> <!-- Ikon untuk mode gelap (default) -->
+                </button>
+
+                <!-- Pengalih Bahasa -->
+                <div class="language-switcher">
+                    <button class="language-switcher-btn icon-btn" id="language-toggle" aria-label="Ubah bahasa">
+                        <i class="fas fa-globe"></i>
+                        <span class="current-lang">ID</span> <!-- Bahasa default ID -->
+                    </button>
+                    <ul class="language-dropdown" id="language-options">
+                         <!-- Opsi Bahasa -->
+                        <li><button data-lang-set="id">Indonesia</button></li>
+                        <li><button data-lang-set="en">English</button></li>
+                    </ul>
+                </div>
+
+                <!-- Tombol Toggle Menu Mobile -->
+                <button class="mobile-menu-toggle icon-btn" id="mobile-menu-trigger" aria-label="Buka menu navigasi">
+                    <i class="fas fa-bars open-icon"></i> <!-- Ikon buka menu -->
+                    <i class="fas fa-times close-icon"></i> <!-- Ikon tutup menu -->
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Header Situs Selesai -->
+
+    <!-- Kontainer Navigasi Mobile Mulai -->
+    <div class="mobile-nav-container" id="mobile-nav"> <!-- Kontainer untuk menu mobile -->
+        <nav class="mobile-nav">
+             <ul class="mobile-nav-list">
+                <!-- Daftar link navigasi mobile -->
+                <li class="mobile-nav-item"><a href="#hero" class="mobile-nav-link active" data-lang-key="nav_home">Beranda</a></li>
+                <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link" data-lang-key="nav_about">Tentang</a></li>
+                <li class="mobile-nav-item"><a href="#skills" class="mobile-nav-link" data-lang-key="nav_skills">Keahlian</a></li>
+                <li class="mobile-nav-item"><a href="#portfolio" class="mobile-nav-link" data-lang-key="nav_portfolio">Portofolio</a></li>
+                <li class="mobile-nav-item"><a href="#experience" class="mobile-nav-link" data-lang-key="nav_experience">Perjalanan</a></li>
+                 <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link" data-lang-key="nav_services">Layanan</a></li>
+                <li class="mobile-nav-item"><a href="#contact" class="mobile-nav-link" data-lang-key="nav_contact">Kontak</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-nav-footer"> <!-- Footer di dalam menu mobile -->
+             <div class="mobile-social-links">
+                 <!-- Tautan sosial media untuk mobile -->
+                <a href="https://github.com/dresar" target="_blank" aria-label="GitHub" class="social-icon-mobile"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/arifex21" target="_blank" aria-label="LinkedIn" class="social-icon-mobile"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/arif_ex21" target="_blank" aria-label="Instagram" class="social-icon-mobile"><i class="fab fa-instagram"></i></a>
+                 <a href="https://wa.me/+6282392115909" target="_blank" aria-label="WhatsApp" class="social-icon-mobile"><i class="fab fa-whatsapp"></i></a>
+            </div>
+             <p class="mobile-nav-copyright" data-lang-key="footer_copyright_mobile">&copy; 2024 Eka S. Maulana</p>
+        </div>
+    </div>
+    <!-- Kontainer Navigasi Mobile Selesai -->
+
+    <!-- Area Konten Utama Mulai -->
+    <main class="site-main">
+
+        <!-- Bagian Hero Mulai -->
+        <section class="hero-section section" id="hero">
+            <div class="hero-background-elements">
+                <!-- Contoh: Elemen latar belakang animasi atau partikel -->
+                <div class="shape shape-1 animated-shape style-1"></div>
+                <div class="shape shape-2 animated-shape style-2 delay-1"></div>
+                <div class="shape shape-3 animated-shape style-1 delay-2"></div>
+                <div class="shape shape-4 animated-shape style-2 delay-3"></div>
+                <div class="shape shape-5 animated-shape style-1 delay-4"></div>
+                 <!-- <div id="particles-js"></div>  Jika menggunakan particles.js -->
+                 <!-- Grid pattern overlay -->
+                 <div class="hero-grid-pattern"></div>
+            </div>
+            <div class="container hero-content-container">
+                <div class="hero-text-content animate-on-scroll" data-animation="fadeInUp">
+                    <span class="hero-greeting" data-lang-key="hero_greeting">Halo, Saya</span>
+                    <h1 class="hero-name interactive-text" data-text="Eka Syarif Maulana">Eka Syarif Maulana</h1> <!-- Efek teks interaktif -->
+                    <div class="hero-dynamic-roles">
+                        <span data-lang-key="hero_i_am_a">Saya seorang</span>
+                        <span class="role-ticker" id="role-ticker">
+                            <!-- Peran akan diisi oleh JS dari data bahasa -->
+                        </span>
+                    </div>
+                    <p class="hero-intro" data-lang-key="hero_intro">
+                        Pengembang dan desainer penuh semangat yang menciptakan pengalaman digital intuitif dan dinamis. Jelajahi karya dan perjalanan saya.
+                    </p>
+                    <div class="hero-cta-buttons">
+                        <!-- Tombol Aksi Utama -->
+                        <a href="#portfolio" class="btn btn-primary btn-gradient animate-on-scroll" data-animation="pulse" data-lang-key="hero_cta_portfolio">
+                            <i class="fas fa-briefcase"></i> Lihat Portofolio
+                        </a>
+                        <a href="files/cv_eka_syarif_maulana.pdf" class="btn btn-secondary animate-on-scroll" data-animation="fadeInRight" data-lang-key="hero_cta_cv" download>
+                            <i class="fas fa-download"></i> Unduh CV
+                        </a>
+                    </div>
+                     <!-- Tautan Sosial Media di Hero -->
+                    <div class="hero-social-links animate-on-scroll" data-animation="fadeInUp" data-delay="0.5">
+                        <a href="https://github.com/dresar" target="_blank" aria-label="GitHub" class="social-icon-hero tooltip" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/arifex21" target="_blank" aria-label="LinkedIn" class="social-icon-hero tooltip" data-tooltip="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/arif_ex21" target="_blank" aria-label="Instagram" class="social-icon-hero tooltip" data-tooltip="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/+6282392115909" target="_blank" aria-label="WhatsApp" class="social-icon-hero tooltip" data-tooltip="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://t.me/arif_ex21" target="_blank" aria-label="Telegram" class="social-icon-hero tooltip" data-tooltip="Telegram"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                 <!-- Placeholder untuk Gambar Hero atau Animasi Visual -->
+                 <div class="hero-visual-content animate-on-scroll" data-animation="zoomIn">
+                    <div class="hero-image-wrapper">
+                        <img src="images/placeholder-hero.png" alt="Foto Profil Eka Syarif Maulana" class="hero-image lazyload" data-src="images/profile/hero-image.jpg">
+                         <!-- Elemen dekoratif tambahan di sekitar gambar -->
+                        <div class="hero-image-deco deco-1"></div>
+                        <div class="hero-image-deco deco-2"></div>
+                        <div class="hero-image-deco deco-3"></div>
+                    </div>
+                     <!-- Badge atau Statistik Singkat -->
+                     <div class="hero-stats-badges">
+                         <div class="badge badge-experience animate-on-scroll" data-animation="bounceIn" data-delay="0.7">
+                             <i class="fas fa-star"></i> <span data-lang-key="hero_badge_experience">5+ Thn Pengalaman</span>
+                         </div>
+                         <div class="badge badge-projects animate-on-scroll" data-animation="bounceIn" data-delay="0.9">
+                            <i class="fas fa-check-circle"></i> <span data-lang-key="hero_badge_projects">99+ Proyek</span>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <!-- Indikator Scroll ke Bawah -->
+            <a href="#about" class="scroll-down-indicator" aria-label="Scroll ke bawah">
+                <div class="mousey">
+                    <div class="scroller"></div>
+                </div>
+                <span class="scroll-down-text" data-lang-key="hero_scroll_down">Scroll ke Bawah</span>
+            </a>
+        </section>
+        <!-- Bagian Hero Selesai -->
+
+        <!-- Bagian Tentang Saya Mulai -->
+        <section class="about-section section" id="about">
+            <div class="container about-container">
+                <!-- Header Bagian -->
+                <div class="section-header text-center animate-on-scroll" data-animation="fadeInDown">
+                    <h2 class="section-title" data-lang-key="about_title">Tentang Saya</h2>
+                    <p class="section-subtitle" data-lang-key="about_subtitle">Kenali lebih dekat siapa saya dan apa yang saya lakukan.</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="about-content-grid">
+                    <!-- Konten Visual (Gambar/Animasi) -->
+                    <div class="about-visual animate-on-scroll" data-animation="fadeInLeft">
+                        <div class="about-image-container">
+                            <img src="images/placeholder-about.png" alt="Foto Eka Syarif Maulana sedang bekerja" class="about-image lazyload" data-src="images/profile/about-image.jpg">
+                            <!-- Elemen dekoratif -->
+                            <div class="about-deco-shape shape-circle"></div>
+                            <div class="about-deco-shape shape-dots"></div>
+                        </div>
+                        <!-- Statistik atau Fakta Menarik -->
+                        <div class="about-quick-stats">
+                            <div class="stat-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.1">
+                                <i class="fas fa-code stat-icon"></i>
+                                <span class="stat-number counter" data-target="15000">0</span> <!-- Contoh Counter JS -->
+                                <span class="stat-label" data-lang-key="about_stat_loc">Baris Kode</span>
+                            </div>
+                            <div class="stat-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.2">
+                                <i class="fas fa-mug-hot stat-icon"></i>
+                                <span class="stat-number counter" data-target="2500">0</span>
+                                <span class="stat-label" data-lang-key="about_stat_coffee">Cangkir Kopi</span>
+                            </div>
+                            <div class="stat-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.3">
+                                <i class="fas fa-lightbulb stat-icon"></i>
+                                <span class="stat-number counter" data-target="500">0</span>
+                                <span class="stat-label" data-lang-key="about_stat_ideas">Ide Kreatif</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Konten Teks -->
+                    <div class="about-text animate-on-scroll" data-animation="fadeInRight">
+                        <h3 class="about-greeting" data-lang-key="about_greeting">Halo! Saya <span class="highlight-text">Eka Syarif Maulana</span></h3>
+                        <p class="about-bio" data-lang-key="about_bio_1">
+                           Saya adalah seorang mahasiswa Teknologi Informasi semester 6 di Universitas Muhammadiyah Sumatera Utara. Dengan hasrat mendalam untuk teknologi dan pemecahan masalah, saya telah mengasah keterampilan dalam pengembangan web (front-end & back-end), desain UI/UX, dan mulai merambah ke pengembangan mobile. Saya selalu antusias mempelajari teknologi baru dan menerapkannya untuk menciptakan solusi digital yang inovatif dan efisien.
+                        </p>
+                        <p class="about-bio" data-lang-key="about_bio_2">
+                            Di luar coding, saya menikmati eksplorasi tren desain terkini, berkontribusi pada proyek open-source, dan terus belajar melalui kursus online. Saya percaya pada kekuatan kolaborasi dan komunikasi yang efektif dalam tim untuk mencapai hasil terbaik.
+                        </p>
+
+                        <!-- Informasi Detail -->
+                        <div class="about-details-list">
+                            <div class="detail-item"><i class="fas fa-user"></i> <strong data-lang-key="about_detail_name">Nama:</strong> Eka Syarif Maulana</div>
+                            <div class="detail-item"><i class="fas fa-envelope"></i> <strong data-lang-key="about_detail_email">Email:</strong> <a href="mailto:eka.ckp16799@gmail.com">eka.ckp16799@gmail.com</a></div>
+                            <div class="detail-item"><i class="fas fa-phone"></i> <strong data-lang-key="about_detail_phone">Telepon:</strong> <a href="tel:+6282392115909">+62 823-9211-5909</a></div>
+                            <div class="detail-item"><i class="fas fa-map-marker-alt"></i> <strong data-lang-key="about_detail_location">Lokasi:</strong> Medan, Indonesia</div>
+                            <div class="detail-item"><i class="fas fa-calendar-check"></i> <strong data-lang-key="about_detail_availability">Ketersediaan:</strong> <span class="availability-status available" data-lang-key="about_availability_yes">Tersedia untuk Freelance</span></div>
+                        </div>
+
+                        <!-- Tombol Aksi -->
+                        <div class="about-cta-buttons">
+                            <a href="#contact" class="btn btn-primary animate-on-scroll" data-animation="pulse" data-delay="0.4" data-lang-key="about_cta_contact">
+                                <i class="fas fa-paper-plane"></i> Hubungi Saya
+                            </a>
+                             <a href="files/Curriculum_Vitae_Eka_Syarif_Maulana.pdf" download class="btn btn-secondary animate-on-scroll" data-animation="fadeInUp" data-delay="0.5" data-lang-key="about_cta_cv">
+                                <i class="fas fa-file-alt"></i> Unduh CV Lengkap
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Bagian Nilai atau Filosofi (Opsional) -->
+                 <div class="about-values-section animate-on-scroll" data-animation="fadeInUp" data-delay="0.2">
+                    <h4 class="values-title" data-lang-key="about_values_title">Filosofi Kerja Saya</h4>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <i class="fas fa-lightbulb value-icon"></i>
+                            <h5 data-lang-key="about_value_1_title">Inovasi</h5>
+                            <p data-lang-key="about_value_1_desc">Selalu mencari cara baru dan lebih baik untuk memecahkan masalah.</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-users value-icon"></i>
+                            <h5 data-lang-key="about_value_2_title">Kolaborasi</h5>
+                            <p data-lang-key="about_value_2_desc">Percaya bahwa kerja tim menghasilkan solusi yang lebih kuat.</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-check-double value-icon"></i>
+                             <h5 data-lang-key="about_value_3_title">Kualitas</h5>
+                            <p data-lang-key="about_value_3_desc">Berkomitmen untuk memberikan hasil yang detail dan teruji.</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-graduation-cap value-icon"></i>
+                            <h5 data-lang-key="about_value_4_title">Pembelajaran Berkelanjutan</h5>
+                            <p data-lang-key="about_value_4_desc">Terus menerus mengasah skill dan mengikuti perkembangan teknologi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Bagian Tentang Saya Selesai -->
+
+        <!-- Bagian Keahlian Mulai -->
+        <section class="skills-section section section-alt-bg" id="skills"> <!-- Latar belakang alternatif -->
+            <div class="container skills-container">
+                 <!-- Header Bagian -->
+                <div class="section-header text-center animate-on-scroll" data-animation="fadeInDown">
+                    <h2 class="section-title" data-lang-key="skills_title">Keahlian Saya</h2>
+                    <p class="section-subtitle" data-lang-key="skills_subtitle">Teknologi dan alat yang saya kuasai dan sukai.</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- Kontainer Tab Keahlian -->
+                <div class="skills-tabs-container animate-on-scroll" data-animation="fadeInUp">
+                    <div class="skills-tab-header">
+                        <button class="skill-tab-btn active" data-tab="frontend"><i class="fas fa-desktop"></i> <span data-lang-key="skills_tab_frontend">Front-End</span></button>
+                        <button class="skill-tab-btn" data-tab="backend"><i class="fas fa-server"></i> <span data-lang-key="skills_tab_backend">Back-End</span></button>
+                        <button class="skill-tab-btn" data-tab="mobile"><i class="fas fa-mobile-alt"></i> <span data-lang-key="skills_tab_mobile">Mobile</span></button>
+                        <button class="skill-tab-btn" data-tab="database"><i class="fas fa-database"></i> <span data-lang-key="skills_tab_database">Database</span></button>
+                        <button class="skill-tab-btn" data-tab="tools"><i class="fas fa-tools"></i> <span data-lang-key="skills_tab_tools">Alat & Lainnya</span></button>
+                        <button class="skill-tab-btn" data-tab="design"><i class="fas fa-palette"></i> <span data-lang-key="skills_tab_design">Desain</span></button>
+                         <button class="skill-tab-btn" data-tab="softskills"><i class="fas fa-users"></i> <span data-lang-key="skills_tab_soft">Soft Skills</span></button>
+                    </div>
+
+                    <div class="skills-tab-content-wrapper">
+                        <!-- Konten Tab Front-End -->
+                        <div class="skills-tab-content active" id="frontend">
+                            <div class="skills-grid">
+                                <!-- Item Keahlian (Contoh) -->
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn">
+                                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                                    <h4 class="skill-name">HTML5</h4>
+                                    <div class="skill-level" data-level="95"> <!-- Level untuk progress bar/visualisasi -->
+                                        <div class="skill-progress-bar"><span style="width: 95%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_expert">Ahli</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_html">Struktur web semantik & modern.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.1">
+                                    <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                                    <h4 class="skill-name">CSS3 & SASS</h4>
+                                    <div class="skill-level" data-level="90">
+                                         <div class="skill-progress-bar"><span style="width: 90%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_advanced">Mahir</span>
+                                    </div>
+                                     <p class="skill-desc" data-lang-key="skills_desc_css">Layout responsif, animasi, preprocessor.</p>
+                                </div>
+                                 <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.2">
+                                    <div class="skill-icon"><i class="fab fa-js-square"></i></div>
+                                    <h4 class="skill-name">JavaScript (ES6+)</h4>
+                                     <div class="skill-level" data-level="75">
+                                         <div class="skill-progress-bar"><span style="width: 75%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_js">DOM manipulasi, async, API.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.3">
+                                    <div class="skill-icon"><i class="fab fa-react"></i></div>
+                                    <h4 class="skill-name">React.js</h4>
+                                     <div class="skill-level" data-level="70">
+                                        <div class="skill-progress-bar"><span style="width: 70%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                     <p class="skill-desc" data-lang-key="skills_desc_react">Komponen, state, hooks.</p>
+                                </div>
+                                <!-- Tambahkan item keahlian frontend lainnya -->
+                                 <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.4">
+                                    <div class="skill-icon"><i class="fab fa-vuejs"></i></div>
+                                    <h4 class="skill-name">Vue.js</h4>
+                                    <div class="skill-level" data-level="60">
+                                         <div class="skill-progress-bar"><span style="width: 60%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_basic">Dasar</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_vue">Pengalaman dasar Vue.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.5">
+                                    <div class="skill-icon"><i class="fab fa-bootstrap"></i></div>
+                                    <h4 class="skill-name">Bootstrap</h4>
+                                    <div class="skill-level" data-level="85">
+                                        <div class="skill-progress-bar"><span style="width: 85%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_advanced">Mahir</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_bootstrap">Framework CSS responsif.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.6">
+                                    <!-- Icon untuk Tailwind bisa custom atau Font Awesome -->
+                                     <div class="skill-icon"><i class="fas fa-wind"></i></div>
+                                    <h4 class="skill-name">Tailwind CSS</h4>
+                                    <div class="skill-level" data-level="70">
+                                         <div class="skill-progress-bar"><span style="width: 70%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_tailwind">Utility-first CSS framework.</p>
+                                </div>
+                                 <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.7">
+                                     <div class="skill-icon"><i class="fas fa-tasks"></i></div>
+                                    <h4 class="skill-name">Webpack/Vite</h4>
+                                     <div class="skill-level" data-level="65">
+                                         <div class="skill-progress-bar"><span style="width: 65%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                     <p class="skill-desc" data-lang-key="skills_desc_bundler">Module bundler & build tools.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Konten Tab Back-End -->
+                        <div class="skills-tab-content" id="backend">
+                             <div class="skills-grid">
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn">
+                                    <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                                    <h4 class="skill-name">Node.js</h4>
+                                     <div class="skill-level" data-level="65">
+                                        <div class="skill-progress-bar"><span style="width: 65%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_node">Runtime JavaScript sisi server.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.1">
+                                    <div class="skill-icon"><i class="fas fa-feather-alt"></i></div> <!-- Ikon untuk Express -->
+                                    <h4 class="skill-name">Express.js</h4>
+                                     <div class="skill-level" data-level="70">
+                                        <div class="skill-progress-bar"><span style="width: 70%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                     <p class="skill-desc" data-lang-key="skills_desc_express">Framework Node.js minimalis.</p>
+                                </div>
+                                 <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.2">
+                                    <div class="skill-icon"><i class="fab fa-php"></i></div>
+                                    <h4 class="skill-name">PHP</h4>
+                                    <div class="skill-level" data-level="75">
+                                        <div class="skill-progress-bar"><span style="width: 75%;"></span></div>
+                                         <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                     <p class="skill-desc" data-lang-key="skills_desc_php">Bahasa scripting sisi server.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.3">
+                                    <div class="skill-icon"><i class="fab fa-laravel"></i></div>
+                                    <h4 class="skill-name">Laravel</h4>
+                                     <div class="skill-level" data-level="60">
+                                         <div class="skill-progress-bar"><span style="width: 60%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_basic">Dasar</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_laravel">Framework PHP elegan.</p>
+                                </div>
+                                <!-- Tambahkan item keahlian backend lainnya -->
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.4">
+                                    <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+                                    <h4 class="skill-name">RESTful API</h4>
+                                    <div class="skill-level" data-level="70">
+                                        <div class="skill-progress-bar"><span style="width: 70%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_api">Desain & implementasi API.</p>
+                                </div>
+                                 <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.5">
+                                    <div class="skill-icon"><i class="fas fa-key"></i></div>
+                                    <h4 class="skill-name">Authentication (JWT)</h4>
+                                    <div class="skill-level" data-level="65">
+                                        <div class="skill-progress-bar"><span style="width: 65%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_jwt">Otentikasi berbasis token.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Konten Tab Mobile -->
+                        <div class="skills-tab-content" id="mobile">
+                            <div class="skills-grid">
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn">
+                                    <div class="skill-icon"><i class="fab fa-react"></i></div> <!-- React Native menggunakan ikon React -->
+                                    <h4 class="skill-name">React Native</h4>
+                                    <div class="skill-level" data-level="50">
+                                         <div class="skill-progress-bar"><span style="width: 50%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_basic">Dasar</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_rn">Pengembangan mobile cross-platform.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.1">
+                                    <div class="skill-icon"><i class="fab fa-android"></i></div>
+                                    <h4 class="skill-name">Android (Java/Kotlin)</h4>
+                                    <div class="skill-level" data-level="40">
+                                        <div class="skill-progress-bar"><span style="width: 40%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_basic">Dasar</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_android">Pengembangan Android native (dasar).</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.2">
+                                     <div class="skill-icon"><i class="fas fa-fire"></i></div> <!-- Ikon untuk Flutter (sering diasosiasikan dengan api/firebase) -->
+                                    <h4 class="skill-name">Flutter</h4>
+                                     <div class="skill-level" data-level="30">
+                                         <div class="skill-progress-bar"><span style="width: 30%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_beginner">Pemula</span>
+                                    </div>
+                                     <p class="skill-desc" data-lang-key="skills_desc_flutter">Tertarik mempelajari Flutter.</p>
+                                </div>
+                                <!-- Tambahkan item keahlian mobile lainnya -->
+                            </div>
+                        </div>
+                        <!-- Konten Tab Database -->
+                        <div class="skills-tab-content" id="database">
+                            <div class="skills-grid">
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn">
+                                    <div class="skill-icon"><i class="fas fa-database"></i></div> <!-- Ikon generik database -->
+                                    <h4 class="skill-name">MySQL</h4>
+                                     <div class="skill-level" data-level="80">
+                                        <div class="skill-progress-bar"><span style="width: 80%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_advanced">Mahir</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_mysql">Database relasional.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.1">
+                                    <div class="skill-icon"><i class="fas fa-leaf"></i></div> <!-- Ikon untuk MongoDB -->
+                                    <h4 class="skill-name">MongoDB</h4>
+                                     <div class="skill-level" data-level="60">
+                                         <div class="skill-progress-bar"><span style="width: 60%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_basic">Dasar</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_mongo">Database NoSQL (Document).</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.2">
+                                    <div class="skill-icon"><i class="fas fa-database"></i></div> <!-- Ikon generik database -->
+                                    <h4 class="skill-name">PostgreSQL</h4>
+                                    <div class="skill-level" data-level="55">
+                                        <div class="skill-progress-bar"><span style="width: 55%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_basic">Dasar</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_postgres">Database relasional objek.</p>
+                                </div>
+                                <!-- Tambahkan item keahlian database lainnya -->
+                                 <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.3">
+                                     <div class="skill-icon"><i class="fas fa-fire"></i></div>
+                                    <h4 class="skill-name">Firebase</h4>
+                                     <div class="skill-level" data-level="65">
+                                         <div class="skill-progress-bar"><span style="width: 65%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                     <p class="skill-desc" data-lang-key="skills_desc_firebase">Platform BaaS (Firestore, Realtime DB).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Konten Tab Alat & Lainnya -->
+                        <div class="skills-tab-content" id="tools">
+                            <div class="skills-grid">
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn">
+                                    <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                                    <h4 class="skill-name">Git & GitHub</h4>
+                                    <div class="skill-level" data-level="90">
+                                         <div class="skill-progress-bar"><span style="width: 90%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_advanced">Mahir</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_git">Version control system.</p>
+                                </div>
+                                 <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.1">
+                                    <div class="skill-icon"><i class="fab fa-docker"></i></div>
+                                    <h4 class="skill-name">Docker</h4>
+                                     <div class="skill-level" data-level="60">
+                                        <div class="skill-progress-bar"><span style="width: 60%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_basic">Dasar</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_docker">Containerization.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.2">
+                                    <div class="skill-icon"><i class="fab fa-aws"></i></div>
+                                    <h4 class="skill-name">AWS (Dasar)</h4>
+                                    <div class="skill-level" data-level="45">
+                                        <div class="skill-progress-bar"><span style="width: 45%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_basic">Dasar</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_aws">Layanan Cloud (EC2, S3).</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.3">
+                                    <div class="skill-icon"><i class="fas fa-terminal"></i></div>
+                                    <h4 class="skill-name">Command Line</h4>
+                                    <div class="skill-level" data-level="75">
+                                        <div class="skill-progress-bar"><span style="width: 75%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_cli">Penggunaan terminal.</p>
+                                </div>
+                                 <!-- Tambahkan item keahlian alat lainnya -->
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.4">
+                                    <div class="skill-icon"><i class="fas fa-cogs"></i></div>
+                                    <h4 class="skill-name">CI/CD (Dasar)</h4>
+                                    <div class="skill-level" data-level="40">
+                                        <div class="skill-progress-bar"><span style="width: 40%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_basic">Dasar</span>
+                                    </div>
+                                     <p class="skill-desc" data-lang-key="skills_desc_cicd">Konsep dasar Continuous Integration/Deployment.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.5">
+                                    <div class="skill-icon"><i class="fab fa-trello"></i></div> <!-- Contoh ikon untuk project management -->
+                                    <h4 class="skill-name">Manajemen Proyek (Agile/Scrum)</h4>
+                                    <div class="skill-level" data-level="70">
+                                         <div class="skill-progress-bar"><span style="width: 70%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_agile">Metodologi pengembangan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Konten Tab Desain -->
+                        <div class="skills-tab-content" id="design">
+                             <div class="skills-grid">
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn">
+                                    <div class="skill-icon"><i class="fab fa-figma"></i></div>
+                                    <h4 class="skill-name">Figma</h4>
+                                    <div class="skill-level" data-level="85">
+                                        <div class="skill-progress-bar"><span style="width: 85%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_advanced">Mahir</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_figma">Desain UI/UX & Prototyping.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.1">
+                                    <div class="skill-icon"><i class="fas fa-bezier-curve"></i></div> <!-- Ikon Adobe Illustrator -->
+                                    <h4 class="skill-name">Adobe Illustrator</h4>
+                                    <div class="skill-level" data-level="70">
+                                         <div class="skill-progress-bar"><span style="width: 70%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_ai">Desain vektor.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.2">
+                                     <div class="skill-icon"><i class="fas fa-image"></i></div> <!-- Ikon Adobe Photoshop -->
+                                    <h4 class="skill-name">Adobe Photoshop</h4>
+                                     <div class="skill-level" data-level="75">
+                                         <div class="skill-progress-bar"><span style="width: 75%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_intermediate">Menengah</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_ps">Editing gambar & grafis.</p>
+                                </div>
+                                <!-- Tambahkan item keahlian desain lainnya -->
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.3">
+                                    <div class="skill-icon"><i class="fas fa-object-group"></i></div>
+                                    <h4 class="skill-name">UI Design Principles</h4>
+                                    <div class="skill-level" data-level="80">
+                                        <div class="skill-progress-bar"><span style="width: 80%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_advanced">Mahir</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_ui">Prinsip desain antarmuka.</p>
+                                </div>
+                                <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.4">
+                                    <div class="skill-icon"><i class="fas fa-users-cog"></i></div>
+                                    <h4 class="skill-name">UX Research (Dasar)</h4>
+                                     <div class="skill-level" data-level="60">
+                                        <div class="skill-progress-bar"><span style="width: 60%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_basic">Dasar</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_ux">Riset pengguna dasar.</p>
+                                </div>
+                                 <div class="skill-item animate-on-scroll" data-animation="zoomIn" data-delay="0.5">
+                                    <div class="skill-icon"><i class="fas fa-sitemap"></i></div>
+                                    <h4 class="skill-name">Wireframing & Prototyping</h4>
+                                    <div class="skill-level" data-level="85">
+                                         <div class="skill-progress-bar"><span style="width: 85%;"></span></div>
+                                        <span class="skill-level-text" data-lang-key="skills_level_advanced">Mahir</span>
+                                    </div>
+                                    <p class="skill-desc" data-lang-key="skills_desc_proto">Membuat kerangka & prototipe.</p>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Konten Tab Soft Skills -->
+                        <div class="skills-tab-content" id="softskills">
+                             <div class="skills-grid soft-skills-grid"> <!-- Grid khusus untuk soft skills -->
+                                <div class="soft-skill-item animate-on-scroll" data-animation="fadeInUp">
+                                    <i class="fas fa-comments soft-skill-icon"></i>
+                                    <h4 data-lang-key="skills_soft_communication">Komunikasi Efektif</h4>
+                                    <p data-lang-key="skills_desc_communication">Mampu menyampaikan ide dengan jelas baik lisan maupun tulisan.</p>
+                                </div>
+                                <div class="soft-skill-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.1">
+                                    <i class="fas fa-users soft-skill-icon"></i>
+                                    <h4 data-lang-key="skills_soft_teamwork">Kerja Sama Tim</h4>
+                                     <p data-lang-key="skills_desc_teamwork">Berkolaborasi secara produktif dalam lingkungan tim.</p>
+                                </div>
+                                 <div class="soft-skill-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.2">
+                                    <i class="fas fa-lightbulb soft-skill-icon"></i>
+                                    <h4 data-lang-key="skills_soft_problemsolving">Pemecahan Masalah</h4>
+                                     <p data-lang-key="skills_desc_problemsolving">Menganalisis masalah dan menemukan solusi kreatif.</p>
+                                </div>
+                                <div class="soft-skill-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.3">
+                                    <i class="fas fa-clock soft-skill-icon"></i>
+                                    <h4 data-lang-key="skills_soft_time">Manajemen Waktu</h4>
+                                     <p data-lang-key="skills_desc_time">Mengatur prioritas dan menyelesaikan tugas tepat waktu.</p>
+                                </div>
+                                <div class="soft-skill-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.4">
+                                    <i class="fas fa-sync-alt soft-skill-icon"></i>
+                                    <h4 data-lang-key="skills_soft_adaptability">Adaptabilitas</h4>
+                                    <p data-lang-key="skills_desc_adaptability">Fleksibel dan cepat beradaptasi dengan perubahan.</p>
+                                </div>
+                                <div class="soft-skill-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.5">
+                                    <i class="fas fa-seedling soft-skill-icon"></i>
+                                    <h4 data-lang-key="skills_soft_learning">Keinginan Belajar</h4>
+                                    <p data-lang-key="skills_desc_learning">Proaktif dalam mempelajari hal baru dan mengembangkan diri.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Bagian Visualisasi Keahlian Tambahan (Opsional) -->
+                <div class="skills-visualization animate-on-scroll" data-animation="fadeIn" data-delay="0.5">
+                    <h3 class="visualization-title" data-lang-key="skills_viz_title">Visualisasi Area Fokus</h3>
+                    <!-- Contoh: Radar Chart atau Bar Chart - Implementasi JS diperlukan -->
+                    <canvas id="skillsRadarChart"></canvas>
+                     <p class="visualization-note" data-lang-key="skills_viz_note">*Visualisasi menunjukkan area fokus utama berdasarkan proyek terakhir.</p>
+                </div>
+
+                 <!-- Ajakan Aksi Terkait Keahlian -->
+                 <div class="skills-cta text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.6">
+                    <p data-lang-key="skills_cta_text">Tertarik membahas bagaimana keahlian ini dapat membantu proyek Anda?</p>
+                    <a href="#contact" class="btn btn-secondary" data-lang-key="skills_cta_button"><i class="fas fa-comments"></i> Mari Bicara</a>
+                </div>
+
+            </div>
+        </section>
+        <!-- Bagian Keahlian Selesai -->
+
+         <!-- Bagian Layanan Mulai -->
+        <section class="services-section section" id="services">
+            <div class="container services-container">
+                <!-- Header Bagian -->
+                <div class="section-header text-center animate-on-scroll" data-animation="fadeInDown">
+                    <h2 class="section-title" data-lang-key="services_title">Layanan yang Saya Tawarkan</h2>
+                    <p class="section-subtitle" data-lang-key="services_subtitle">Solusi digital yang dapat saya bantu wujudkan.</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- Grid Layanan -->
+                <div class="services-grid">
+                    <!-- Kartu Layanan 1 -->
+                    <div class="service-card animate-on-scroll" data-animation="flipInY">
+                        <div class="service-icon gradient-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="service-title" data-lang-key="service_1_title">Pengembangan Web Front-End</h3>
+                        <p class="service-description" data-lang-key="service_1_desc">Membangun antarmuka pengguna yang responsif, interaktif, dan menarik menggunakan teknologi web modern seperti React, Vue, HTML5, dan CSS3.</p>
+                        <ul class="service-features">
+                            <li data-lang-key="service_1_feat_1"><i class="fas fa-check"></i> Desain Responsif</li>
+                            <li data-lang-key="service_1_feat_2"><i class="fas fa-check"></i> Optimasi Kinerja</li>
+                            <li data-lang-key="service_1_feat_3"><i class="fas fa-check"></i> Aksesibilitas Web (WCAG)</li>
+                        </ul>
+                        <a href="#portfolio" class="btn btn-tertiary service-cta" data-lang-key="service_cta_view">Lihat Proyek</a>
+                    </div>
+
+                    <!-- Kartu Layanan 2 -->
+                     <div class="service-card animate-on-scroll" data-animation="flipInY" data-delay="0.1">
+                        <div class="service-icon gradient-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3 class="service-title" data-lang-key="service_2_title">Pengembangan Web Back-End</h3>
+                         <p class="service-description" data-lang-key="service_2_desc">Merancang dan membangun logika sisi server, database, dan API yang kuat dan aman menggunakan Node.js, PHP (Laravel), Python (Django/Flask).</p>
+                        <ul class="service-features">
+                             <li data-lang-key="service_2_feat_1"><i class="fas fa-check"></i> Desain API RESTful</li>
+                             <li data-lang-key="service_2_feat_2"><i class="fas fa-check"></i> Manajemen Database</li>
+                             <li data-lang-key="service_2_feat_3"><i class="fas fa-check"></i> Keamanan Aplikasi</li>
+                        </ul>
+                         <a href="#portfolio" class="btn btn-tertiary service-cta" data-lang-key="service_cta_view">Lihat Proyek</a>
+                    </div>
+
+                    <!-- Kartu Layanan 3 -->
+                     <div class="service-card animate-on-scroll" data-animation="flipInY" data-delay="0.2">
+                        <div class="service-icon gradient-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="service-title" data-lang-key="service_3_title">Desain UI/UX</h3>
+                         <p class="service-description" data-lang-key="service_3_desc">Menciptakan pengalaman pengguna yang intuitif dan antarmuka visual yang menarik melalui riset pengguna, wireframing, prototyping, dan desain akhir.</p>
+                         <ul class="service-features">
+                            <li data-lang-key="service_3_feat_1"><i class="fas fa-check"></i> Riset & Persona Pengguna</li>
+                            <li data-lang-key="service_3_feat_2"><i class="fas fa-check"></i> Prototyping Interaktif</li>
+                            <li data-lang-key="service_3_feat_3"><i class="fas fa-check"></i> Desain Sistem</li>
+                        </ul>
+                        <a href="#portfolio?filter=ui" class="btn btn-tertiary service-cta" data-lang-key="service_cta_view">Lihat Proyek</a> <!-- Contoh link dengan filter -->
+                    </div>
+
+                     <!-- Kartu Layanan 4 -->
+                    <div class="service-card animate-on-scroll" data-animation="flipInY" data-delay="0.3">
+                        <div class="service-icon gradient-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="service-title" data-lang-key="service_4_title">Pengembangan Mobile (Dasar)</h3>
+                         <p class="service-description" data-lang-key="service_4_desc">Pengembangan aplikasi mobile cross-platform dasar menggunakan React Native, atau eksplorasi pengembangan Android native.</p>
+                        <ul class="service-features">
+                            <li data-lang-key="service_4_feat_1"><i class="fas fa-check"></i> Cross-Platform (React Native)</li>
+                             <li data-lang-key="service_4_feat_2"><i class="fas fa-check"></i> Integrasi API</li>
+                             <li data-lang-key="service_4_feat_3"><i class="fas fa-check"></i> Pengalaman Pengguna Mobile</li>
+                        </ul>
+                        <a href="#portfolio?filter=mobile" class="btn btn-tertiary service-cta" data-lang-key="service_cta_view">Lihat Proyek</a>
+                    </div>
+
+                     <!-- Kartu Layanan 5 (Contoh Tambahan) -->
+                    <div class="service-card animate-on-scroll" data-animation="flipInY" data-delay="0.4">
+                        <div class="service-icon gradient-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="service-title" data-lang-key="service_5_title">Konsultasi & Strategi Digital</h3>
+                        <p class="service-description" data-lang-key="service_5_desc">Memberikan saran strategis mengenai teknologi web, arsitektur aplikasi, dan praktik terbaik untuk mencapai tujuan bisnis digital Anda.</p>
+                        <ul class="service-features">
+                            <li data-lang-key="service_5_feat_1"><i class="fas fa-check"></i> Analisis Kebutuhan</li>
+                            <li data-lang-key="service_5_feat_2"><i class="fas fa-check"></i> Rekomendasi Teknologi</li>
+                            <li data-lang-key="service_5_feat_3"><i class="fas fa-check"></i> Perencanaan Roadmap</li>
+                        </ul>
+                         <a href="#contact" class="btn btn-tertiary service-cta" data-lang-key="service_cta_discuss">Diskusikan Kebutuhan</a>
+                    </div>
+
+                    <!-- Kartu Layanan 6 (Contoh Tambahan) -->
+                     <div class="service-card animate-on-scroll" data-animation="flipInY" data-delay="0.5">
+                         <div class="service-icon gradient-icon">
+                             <i class="fas fa-file-word"></i>
+                         </div>
+                        <h3 class="service-title" data-lang-key="service_6_title">Optimasi & Pemeliharaan Website</h3>
+                         <p class="service-description" data-lang-key="service_6_desc">Meningkatkan kecepatan, keamanan, dan performa website yang sudah ada, serta menyediakan layanan pemeliharaan rutin.</p>
+                         <ul class="service-features">
+                             <li data-lang-key="service_6_feat_1"><i class="fas fa-check"></i> Audit Performa</li>
+                             <li data-lang-key="service_6_feat_2"><i class="fas fa-check"></i> Pembaruan Keamanan</li>
+                             <li data-lang-key="service_6_feat_3"><i class="fas fa-check"></i> Backup & Recovery</li>
+                         </ul>
+                         <a href="#contact" class="btn btn-tertiary service-cta" data-lang-key="service_cta_discuss">Diskusikan Kebutuhan</a>
+                    </div>
+                </div>
+
+                 <!-- Ajakan Aksi Umum Layanan -->
+                 <div class="services-general-cta text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.3">
+                    <p data-lang-key="services_general_cta_text">Punya ide proyek? Mari kita wujudkan bersama.</p>
+                    <a href="#contact" class="btn btn-primary btn-lg" data-lang-key="services_general_cta_button"><i class="fas fa-lightbulb"></i> Mulai Proyek Anda</a>
+                </div>
+            </div>
+        </section>
+        <!-- Bagian Layanan Selesai -->
+
+        <!-- Bagian Portofolio Mulai -->
+        <section class="portfolio-section section" id="portfolio">
+            <div class="container portfolio-container">
+                 <!-- Header Bagian -->
+                <div class="section-header text-center animate-on-scroll" data-animation="fadeInDown">
+                    <h2 class="section-title" data-lang-key="portfolio_title">Portofolio Karya</h2>
+                    <p class="section-subtitle" data-lang-key="portfolio_subtitle">Beberapa proyek pilihan yang telah saya kerjakan.</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                 <!-- Filter Portofolio -->
+                 <div class="portfolio-filters animate-on-scroll" data-animation="fadeInUp">
+                     <button class="filter-btn active" data-filter="all"><i class="fas fa-grip-horizontal"></i> <span data-lang-key="portfolio_filter_all">Semua</span></button>
+                     <button class="filter-btn" data-filter="web-dev"><i class="fas fa-code"></i> <span data-lang-key="portfolio_filter_web">Web Dev</span></button>
+                     <button class="filter-btn" data-filter="ui-ux"><i class="fas fa-object-ungroup"></i> <span data-lang-key="portfolio_filter_uiux">UI/UX</span></button>
+                     <button class="filter-btn" data-filter="mobile-app"><i class="fas fa-mobile-alt"></i> <span data-lang-key="portfolio_filter_mobile">Mobile</span></button>
+                     <button class="filter-btn" data-filter="branding"><i class="fas fa-copyright"></i> <span data-lang-key="portfolio_filter_branding">Branding</span></button>
+                     <!-- Tambahkan filter lain jika perlu -->
+                </div>
+
+                <!-- Grid Portofolio -->
+                <div class="portfolio-grid">
+                    <!-- Item Portofolio 1 (Contoh Struktur Lengkap) -->
+                    <div class="portfolio-item animate-on-scroll" data-category="web-dev ui-ux" data-animation="zoomIn">
+                        <div class="portfolio-card">
+                            <div class="portfolio-image-wrapper">
+                                <img src="images/placeholder-project.png" data-src="images/projects/project-pertamina-thumb.jpg" alt="Proyek Website Pertamina" class="portfolio-image lazyload">
+                                <div class="portfolio-overlay">
+                                    <h3 class="overlay-title" data-lang-key="project_1_title_overlay">Profil Pertamina Hulu Rokan</h3>
+                                    <p class="overlay-desc" data-lang-key="project_1_desc_overlay">Website company profile informatif.</p>
+                                    <button class="btn btn-primary overlay-btn view-details-btn" data-project-id="pertamina-hulu-rokan">
+                                        <i class="fas fa-eye"></i> <span data-lang-key="portfolio_view_details">Lihat Detail</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4 class="portfolio-title" data-lang-key="project_1_title_card">Profil Perusahaan Pertamina Hulu Rokan</h4>
+                                <div class="portfolio-categories">
+                                    <span class="category-tag" data-lang-key="portfolio_tag_web">Web Dev</span>
+                                    <span class="category-tag" data-lang-key="portfolio_tag_uiux">UI/UX</span>
+                                </div>
+                                <div class="portfolio-tech-stack">
+                                     <!-- Ikon teknologi -->
+                                    <i class="fab fa-html5 tooltip" data-tooltip="HTML5"></i>
+                                    <i class="fab fa-css3-alt tooltip" data-tooltip="CSS3"></i>
+                                    <i class="fab fa-js tooltip" data-tooltip="JavaScript"></i>
+                                    <i class="fab fa-bootstrap tooltip" data-tooltip="Bootstrap"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Portofolio 2 -->
+                     <div class="portfolio-item animate-on-scroll" data-category="web-dev" data-animation="zoomIn" data-delay="0.1">
+                        <div class="portfolio-card">
+                            <div class="portfolio-image-wrapper">
+                                <img src="images/placeholder-project.png" data-src="images/projects/project-fintrack-thumb.jpg" alt="Proyek FinTrack" class="portfolio-image lazyload">
+                                <div class="portfolio-overlay">
+                                    <h3 class="overlay-title" data-lang-key="project_2_title_overlay">FinTrack Dashboard</h3>
+                                    <p class="overlay-desc" data-lang-key="project_2_desc_overlay">Aplikasi manajemen keuangan personal.</p>
+                                     <button class="btn btn-primary overlay-btn view-details-btn" data-project-id="fintrack-dashboard">
+                                        <i class="fas fa-eye"></i> <span data-lang-key="portfolio_view_details">Lihat Detail</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4 class="portfolio-title" data-lang-key="project_2_title_card">FinTrack - Dashboard Keuangan</h4>
+                                <div class="portfolio-categories">
+                                    <span class="category-tag" data-lang-key="portfolio_tag_web">Web Dev</span>
+                                </div>
+                                <div class="portfolio-tech-stack">
+                                    <i class="fab fa-html5 tooltip" data-tooltip="HTML5"></i>
+                                    <i class="fab fa-css3-alt tooltip" data-tooltip="CSS3"></i>
+                                    <i class="fab fa-js tooltip" data-tooltip="JavaScript"></i>
+                                     <i class="fab fa-php tooltip" data-tooltip="PHP (konsep)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Item Portofolio 3 -->
+                    <div class="portfolio-item animate-on-scroll" data-category="web-dev" data-animation="zoomIn" data-delay="0.2">
+                        <div class="portfolio-card">
+                            <div class="portfolio-image-wrapper">
+                                <img src="images/placeholder-project.png" data-src="images/projects/project-portfolio-thumb.jpg" alt="Proyek Portfolio Pribadi" class="portfolio-image lazyload">
+                                <div class="portfolio-overlay">
+                                    <h3 class="overlay-title" data-lang-key="project_3_title_overlay">Website Portofolio Ini</h3>
+                                    <p class="overlay-desc" data-lang-key="project_3_desc_overlay">Portfolio personal interaktif.</p>
+                                    <button class="btn btn-primary overlay-btn view-details-btn" data-project-id="personal-portfolio">
+                                        <i class="fas fa-eye"></i> <span data-lang-key="portfolio_view_details">Lihat Detail</span>
+                                    </button>
+                                </div>
+                            </div>
+                             <div class="portfolio-info">
+                                <h4 class="portfolio-title" data-lang-key="project_3_title_card">Portofolio Pribadi v2.0</h4>
+                                <div class="portfolio-categories">
+                                    <span class="category-tag" data-lang-key="portfolio_tag_web">Web Dev</span>
+                                </div>
+                                <div class="portfolio-tech-stack">
+                                    <i class="fab fa-html5 tooltip" data-tooltip="HTML5"></i>
+                                    <i class="fab fa-css3-alt tooltip" data-tooltip="CSS3"></i>
+                                    <i class="fab fa-js tooltip" data-tooltip="JavaScript"></i>
+                                    <!-- Mungkin library animasi seperti GSAP -->
+                                     <i class="fas fa-bolt tooltip" data-tooltip="GSAP"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Portofolio 4 -->
+                    <div class="portfolio-item animate-on-scroll" data-category="mobile-app ui-ux" data-animation="zoomIn" data-delay="0.3">
+                        <div class="portfolio-card">
+                            <div class="portfolio-image-wrapper">
+                                <img src="images/placeholder-project.png" data-src="images/projects/project-delipark-thumb.jpg" alt="Proyek Delipark Navigator" class="portfolio-image lazyload">
+                                <div class="portfolio-overlay">
+                                    <h3 class="overlay-title" data-lang-key="project_4_title_overlay">Delipark AR Navigator</h3>
+                                    <p class="overlay-desc" data-lang-key="project_4_desc_overlay">Aplikasi navigasi mall dengan AR.</p>
+                                    <button class="btn btn-primary overlay-btn view-details-btn" data-project-id="delipark-navigator">
+                                        <i class="fas fa-eye"></i> <span data-lang-key="portfolio_view_details">Lihat Detail</span>
+                                    </button>
+                                </div>
+                            </div>
+                             <div class="portfolio-info">
+                                <h4 class="portfolio-title" data-lang-key="project_4_title_card">Delipark Navigator AR</h4>
+                                <div class="portfolio-categories">
+                                    <span class="category-tag" data-lang-key="portfolio_tag_mobile">Mobile</span>
+                                    <span class="category-tag" data-lang-key="portfolio_tag_uiux">UI/UX</span>
+                                    <span class="category-tag" data-lang-key="portfolio_tag_ar">AR</span>
+                                </div>
+                                <div class="portfolio-tech-stack">
+                                    <i class="fab fa-android tooltip" data-tooltip="Android"></i>
+                                    <i class="fas fa-vr-cardboard tooltip" data-tooltip="ARCore"></i> <!-- Contoh ikon AR -->
+                                    <i class="fab fa-java tooltip" data-tooltip="Java"></i>
+                                     <i class="fab fa-unity tooltip" data-tooltip="Unity"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Portofolio 5 -->
+                    <div class="portfolio-item animate-on-scroll" data-category="ui-ux" data-animation="zoomIn" data-delay="0.4">
+                        <div class="portfolio-card">
+                            <div class="portfolio-image-wrapper">
+                                <img src="images/placeholder-project.png" data-src="images/projects/project-cafecore-thumb.jpg" alt="Proyek CaféCore UI/UX" class="portfolio-image lazyload">
+                                <div class="portfolio-overlay">
+                                    <h3 class="overlay-title" data-lang-key="project_5_title_overlay">Desain Aplikasi CaféCore</h3>
+                                    <p class="overlay-desc" data-lang-key="project_5_desc_overlay">Desain UI/UX aplikasi kopi premium.</p>
+                                    <button class="btn btn-primary overlay-btn view-details-btn" data-project-id="cafecore-app">
+                                        <i class="fas fa-eye"></i> <span data-lang-key="portfolio_view_details">Lihat Detail</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4 class="portfolio-title" data-lang-key="project_5_title_card">CaféCore App UI/UX</h4>
+                                <div class="portfolio-categories">
+                                     <span class="category-tag" data-lang-key="portfolio_tag_uiux">UI/UX</span>
+                                     <span class="category-tag" data-lang-key="portfolio_tag_mobile">Mobile</span>
+                                </div>
+                                <div class="portfolio-tech-stack">
+                                    <i class="fab fa-figma tooltip" data-tooltip="Figma"></i>
+                                    <i class="fas fa-bezier-curve tooltip" data-tooltip="Illustrator"></i>
+                                    <i class="fas fa-image tooltip" data-tooltip="Photoshop"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Portofolio 6 -->
+                    <div class="portfolio-item animate-on-scroll" data-category="branding web-dev" data-animation="zoomIn" data-delay="0.5">
+                        <div class="portfolio-card">
+                            <div class="portfolio-image-wrapper">
+                                <img src="images/placeholder-project.png" data-src="images/projects/project-mahirppt-thumb.jpg" alt="Proyek Mahir PPT" class="portfolio-image lazyload">
+                                <div class="portfolio-overlay">
+                                    <h3 class="overlay-title" data-lang-key="project_6_title_overlay">Branding Mahir PPT</h3>
+                                    <p class="overlay-desc" data-lang-key="project_6_desc_overlay">Identitas merek & pemasaran digital.</p>
+                                    <button class="btn btn-primary overlay-btn view-details-btn" data-project-id="mahir-ppt">
+                                        <i class="fas fa-eye"></i> <span data-lang-key="portfolio_view_details">Lihat Detail</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="portfolio-info">
+                                <h4 class="portfolio-title" data-lang-key="project_6_title_card">Mahir PPT Branding & Marketing</h4>
+                                <div class="portfolio-categories">
+                                    <span class="category-tag" data-lang-key="portfolio_tag_branding">Branding</span>
+                                    <span class="category-tag" data-lang-key="portfolio_tag_marketing">Marketing</span>
+                                </div>
+                                <div class="portfolio-tech-stack">
+                                    <i class="fas fa-bezier-curve tooltip" data-tooltip="Illustrator"></i>
+                                    <i class="fas fa-bullhorn tooltip" data-tooltip="Digital Marketing"></i>
+                                    <i class="fab fa-wordpress tooltip" data-tooltip="Landing Page"></i> <!-- Atau platform lain -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Tambahkan lebih banyak item portofolio sesuai kebutuhan -->
+                     <!-- Item Portofolio 7 -->
+                     <div class="portfolio-item animate-on-scroll" data-category="web-dev" data-animation="zoomIn" data-delay="0.6">
+                        <div class="portfolio-card">
+                             <div class="portfolio-image-wrapper">
+                                <img src="images/placeholder-project.png" data-src="images/projects/project-arsip-thumb.jpg" alt="Proyek Arsip Digital" class="portfolio-image lazyload">
+                                <div class="portfolio-overlay">
+                                    <h3 class="overlay-title" data-lang-key="project_7_title_overlay">Arsip Digital Pertamina</h3>
+                                    <p class="overlay-desc" data-lang-key="project_7_desc_overlay">Sistem manajemen dokumen internal.</p>
+                                    <button class="btn btn-primary overlay-btn view-details-btn" data-project-id="arsip-digital">
+                                        <i class="fas fa-eye"></i> <span data-lang-key="portfolio_view_details">Lihat Detail</span>
+                                    </button>
+                                </div>
+                             </div>
+                             <div class="portfolio-info">
+                                 <h4 class="portfolio-title" data-lang-key="project_7_title_card">Sistem Arsip Digital</h4>
+                                <div class="portfolio-categories">
+                                    <span class="category-tag" data-lang-key="portfolio_tag_web">Web Dev</span>
+                                </div>
+                                 <div class="portfolio-tech-stack">
+                                    <i class="fab fa-php tooltip" data-tooltip="PHP"></i>
+                                    <i class="fas fa-database tooltip" data-tooltip="MySQL"></i>
+                                    <i class="fab fa-bootstrap tooltip" data-tooltip="Bootstrap"></i>
+                                    <i class="fab fa-js tooltip" data-tooltip="jQuery/JS"></i>
+                                </div>
+                             </div>
+                         </div>
+                     </div>
+                     <!-- Item Portofolio 8 -->
+                     <div class="portfolio-item animate-on-scroll" data-category="mobile-app" data-animation="zoomIn" data-delay="0.7">
+                         <div class="portfolio-card">
+                             <div class="portfolio-image-wrapper">
+                                <img src="images/placeholder-project.png" data-src="images/projects/project-netflix-clone-thumb.jpg" alt="Proyek Klon Netflix" class="portfolio-image lazyload">
+                                <div class="portfolio-overlay">
+                                     <h3 class="overlay-title" data-lang-key="project_8_title_overlay">Klon Netflix Sederhana</h3>
+                                     <p class="overlay-desc" data-lang-key="project_8_desc_overlay">Aplikasi mobile pemutar film.</p>
+                                     <button class="btn btn-primary overlay-btn view-details-btn" data-project-id="netflix-clone">
+                                        <i class="fas fa-eye"></i> <span data-lang-key="portfolio_view_details">Lihat Detail</span>
+                                     </button>
+                                </div>
+                             </div>
+                             <div class="portfolio-info">
+                                 <h4 class="portfolio-title" data-lang-key="project_8_title_card">Simple Netflix Clone App</h4>
+                                <div class="portfolio-categories">
+                                    <span class="category-tag" data-lang-key="portfolio_tag_mobile">Mobile</span>
+                                </div>
+                                 <div class="portfolio-tech-stack">
+                                    <i class="fab fa-android tooltip" data-tooltip="Android"></i>
+                                    <i class="fab fa-java tooltip" data-tooltip="Java"></i>
+                                    <i class="fas fa-database tooltip" data-tooltip="SQLite"></i>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                      <!-- Placeholder untuk item lainnya jika grid belum penuh -->
+                      <div class="portfolio-item placeholder animate-on-scroll" data-category="coming-soon" data-animation="zoomIn" data-delay="0.8">
+                         <div class="portfolio-card placeholder-card">
+                             <div class="placeholder-content">
+                                <i class="fas fa-plus placeholder-icon"></i>
+                                 <p data-lang-key="portfolio_placeholder_more">Proyek Lain Segera Hadir</p>
+                             </div>
+                         </div>
+                     </div>
+
+                </div>
+
+                <!-- Tombol Muat Lebih Banyak (jika diperlukan) -->
+                <div class="portfolio-load-more text-center animate-on-scroll" data-animation="fadeInUp">
+                    <button class="btn btn-secondary load-more-btn" id="load-more-projects" style="display: none;"> <!-- Sembunyikan awalnya -->
+                        <i class="fas fa-sync-alt"></i> <span data-lang-key="portfolio_load_more">Muat Lebih Banyak</span>
+                    </button>
+                </div>
+
+            </div>
+
+             <!-- Modal Detail Proyek (Struktur Dasar) -->
+            <div class="modal portfolio-modal" id="portfolio-modal">
+                <div class="modal-overlay"></div>
+                <div class="modal-content-wrapper">
+                     <button class="modal-close-btn icon-btn"><i class="fas fa-times"></i></button>
+                    <div class="modal-content">
+                         <!-- Konten Modal akan diisi oleh JS -->
+                        <div class="modal-header">
+                            <h3 class="modal-project-title">[Judul Proyek]</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-gallery">
+                                <div class="main-image">
+                                    <img src="images/placeholder-project-large.png" alt="Gambar utama proyek" id="modal-main-image">
+                                </div>
+                                <div class="thumbnail-strip" id="modal-thumbnails">
+                                    <!-- Thumbnails akan ditambahkan oleh JS -->
+                                </div>
+                            </div>
+                            <div class="modal-details">
+                                <h4><i class="fas fa-info-circle"></i> <span data-lang-key="modal_project_details">Detail Proyek</span></h4>
+                                <div class="details-grid">
+                                    <div class="detail-pair">
+                                        <span class="detail-label" data-lang-key="modal_client">Klien:</span>
+                                        <span class="detail-value" id="modal-client">[Nama Klien]</span>
+                                    </div>
+                                    <div class="detail-pair">
+                                        <span class="detail-label" data-lang-key="modal_date">Tanggal:</span>
+                                        <span class="detail-value" id="modal-date">[Tanggal Proyek]</span>
+                                    </div>
+                                    <div class="detail-pair">
+                                        <span class="detail-label" data-lang-key="modal_category">Kategori:</span>
+                                        <span class="detail-value" id="modal-category">[Kategori]</span>
+                                    </div>
+                                     <div class="detail-pair">
+                                         <span class="detail-label" data-lang-key="modal_tech">Teknologi:</span>
+                                        <div class="detail-value tech-tags" id="modal-tech-stack">
+                                            <!-- Tag teknologi akan ditambahkan oleh JS -->
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="modal-description">
+                                    <h4><i class="fas fa-align-left"></i> <span data-lang-key="modal_description">Deskripsi</span></h4>
+                                    <p id="modal-description-content">[Deskripsi lengkap proyek...]</p>
+                                </div>
+                                <div class="modal-features">
+                                     <h4><i class="fas fa-star"></i> <span data-lang-key="modal_features">Fitur Utama</span></h4>
+                                     <ul id="modal-features-list">
+                                         <!-- Fitur akan ditambahkan oleh JS -->
+                                     </ul>
+                                </div>
+                                <div class="modal-links">
+                                    <h4><i class="fas fa-link"></i> <span data-lang-key="modal_links">Tautan</span></h4>
+                                    <a href="#" target="_blank" class="btn btn-tertiary link-btn" id="modal-live-link" style="display: none;">
+                                        <i class="fas fa-external-link-alt"></i> <span data-lang-key="modal_live_demo">Demo Langsung</span>
+                                    </a>
+                                    <a href="#" target="_blank" class="btn btn-tertiary link-btn" id="modal-repo-link" style="display: none;">
+                                         <i class="fab fa-github"></i> <span data-lang-key="modal_source_code">Kode Sumber</span>
+                                    </a>
+                                     <a href="#" target="_blank" class="btn btn-tertiary link-btn" id="modal-case-study-link" style="display: none;">
+                                         <i class="fas fa-book-open"></i> <span data-lang-key="modal_case_study">Studi Kasus</span>
+                                     </a>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Konten akan diisi oleh JS -->
+                     </div>
+                 </div>
+             </div>
+
+        </section>
+        <!-- Bagian Portofolio Selesai -->
+
+        <!-- Bagian Pengalaman & Pendidikan Mulai -->
+        <section class="experience-section section section-alt-bg" id="experience">
+            <div class="container experience-container">
+                <!-- Header Bagian -->
+                <div class="section-header text-center animate-on-scroll" data-animation="fadeInDown">
+                    <h2 class="section-title" data-lang-key="experience_title">Perjalanan Saya</h2>
+                    <p class="section-subtitle" data-lang-key="experience_subtitle">Pengalaman kerja, pendidikan, dan pencapaian penting.</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                 <!-- Kontainer Timeline (Bisa digabung atau dipisah) -->
+                <div class="timeline-container">
+                    <!-- Timeline Pengalaman Kerja -->
+                     <div class="timeline-wrapper work-timeline animate-on-scroll" data-animation="fadeInUp">
+                        <h3 class="timeline-group-title"><i class="fas fa-briefcase"></i> <span data-lang-key="experience_work_title">Pengalaman Kerja & Organisasi</span></h3>
+                        <div class="timeline">
+                             <!-- Item Timeline 1 -->
+                            <div class="timeline-item left">
+                                <div class="timeline-content-card animate-on-scroll" data-animation="slideInLeft">
+                                    <div class="timeline-icon"><i class="fas fa-building"></i></div>
+                                    <span class="timeline-date">2025</span>
+                                    <h4 class="timeline-title" data-lang-key="exp_1_title">Web Developer (Magang)</h4>
+                                    <p class="timeline-subtitle" data-lang-key="exp_1_company">PT Pertamina Hulu Rokan Rantau Field 1</p>
+                                    <p class="timeline-description" data-lang-key="exp_1_desc">Mengembangkan beberapa aplikasi web internal, termasuk profil perusahaan, sistem arsip digital, dan inventaris ICT. Terlibat dalam pemahaman infrastruktur jaringan dasar.</p>
+                                    <ul class="timeline-highlights">
+                                        <li data-lang-key="exp_1_hl_1"><i class="fas fa-check"></i> Web Profil Perusahaan</li>
+                                        <li data-lang-key="exp_1_hl_2"><i class="fas fa-check"></i> Sistem Arsip Digital</li>
+                                        <li data-lang-key="exp_1_hl_3"><i class="fas fa-check"></i> Aplikasi Inventaris ICT</li>
+                                    </ul>
+                                     <div class="timeline-tags"><span>Web Dev</span><span>PHP</span><span>MySQL</span></div>
+                                </div>
+                            </div>
+                            <!-- Item Timeline 2 -->
+                            <div class="timeline-item right">
+                                <div class="timeline-content-card animate-on-scroll" data-animation="slideInRight">
+                                    <div class="timeline-icon"><i class="fas fa-users-cog"></i></div>
+                                    <span class="timeline-date">2021 - 2022</span>
+                                    <h4 class="timeline-title" data-lang-key="exp_2_title">Sekretaris & Bendahara OPPM</h4>
+                                    <p class="timeline-subtitle" data-lang-key="exp_2_company">Pondok Pesantren Modern Raudhatussalam</p>
+                                    <p class="timeline-description" data-lang-key="exp_2_desc">Mengelola administrasi surat-menyurat, proposal kegiatan, dokumentasi, dan keuangan organisasi santri. Bertanggung jawab atas kedisiplinan dan kegiatan santri/wati.</p>
+                                     <ul class="timeline-highlights">
+                                        <li data-lang-key="exp_2_hl_1"><i class="fas fa-check"></i> Administrasi & Keuangan</li>
+                                        <li data-lang-key="exp_2_hl_2"><i class="fas fa-check"></i> Pembuatan Proposal</li>
+                                         <li data-lang-key="exp_2_hl_3"><i class="fas fa-check"></i> Manajemen Kegiatan Santri</li>
+                                    </ul>
+                                     <div class="timeline-tags"><span>Organisasi</span><span>Administrasi</span><span>Keuangan</span></div>
+                                </div>
+                            </div>
+                             <!-- Item Timeline 3 (Freelance/Side Project) -->
+                             <div class="timeline-item left">
+                                <div class="timeline-content-card animate-on-scroll" data-animation="slideInLeft">
+                                    <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+                                    <span class="timeline-date">2022 - Sekarang</span>
+                                    <h4 class="timeline-title" data-lang-key="exp_3_title">Affiliate & Digital Marketer</h4>
+                                    <p class="timeline-subtitle" data-lang-key="exp_3_company">Platform E-commerce & Clicky/Lynk.id</p>
+                                    <p class="timeline-description" data-lang-key="exp_3_desc">Mempromosikan produk fisik melalui program afiliasi (Shopee, dll.) dan menjual produk digital (template, tools) melalui platform seperti Clicky. Mengelola kampanye pemasaran dan analisis tren.</p>
+                                     <ul class="timeline-highlights">
+                                         <li data-lang-key="exp_3_hl_1"><i class="fas fa-check"></i> Pemasaran Afiliasi</li>
+                                         <li data-lang-key="exp_3_hl_2"><i class="fas fa-check"></i> Penjualan Produk Digital</li>
+                                         <li data-lang-key="exp_3_hl_3"><i class="fas fa-check"></i> Analisis Pasar & Tren</li>
+                                     </ul>
+                                    <div class="timeline-tags"><span>Freelance</span><span>Marketing</span><span>E-commerce</span></div>
+                                </div>
+                            </div>
+                             <!-- Tambahkan lebih banyak item pengalaman jika ada -->
+                        </div>
+                    </div>
+
+                    <!-- Timeline Pendidikan -->
+                    <div class="timeline-wrapper education-timeline animate-on-scroll" data-animation="fadeInUp" data-delay="0.2">
+                        <h3 class="timeline-group-title"><i class="fas fa-graduation-cap"></i> <span data-lang-key="experience_education_title">Pendidikan</span></h3>
+                        <div class="timeline">
+                            <!-- Item Timeline Pendidikan 1 -->
+                            <div class="timeline-item right">
+                                <div class="timeline-content-card animate-on-scroll" data-animation="slideInRight">
+                                    <div class="timeline-icon"><i class="fas fa-university"></i></div>
+                                    <span class="timeline-date">2022 - Sekarang</span>
+                                    <h4 class="timeline-title" data-lang-key="edu_1_title">S1 Teknologi Informasi</h4>
+                                    <p class="timeline-subtitle" data-lang-key="edu_1_institution">Universitas Muhammadiyah Sumatera Utara (UMSU)</p>
+                                    <p class="timeline-description" data-lang-key="edu_1_desc">Sedang menempuh semester 6. Fokus pada pengembangan web, database, jaringan, dan sistem informasi. IPK terakhir: 3.6.</p>
+                                     <ul class="timeline-highlights">
+                                        <li data-lang-key="edu_1_hl_1"><i class="fas fa-check"></i> Aktif Semester 6</li>
+                                        <li data-lang-key="edu_1_hl_2"><i class="fas fa-check"></i> IPK 3.6</li>
+                                         <li data-lang-key="edu_1_hl_3"><i class="fas fa-check"></i> Fokus: Web & Sistem Info</li>
+                                    </ul>
+                                    <div class="timeline-tags"><span>Kuliah</span><span>Teknologi Informasi</span></div>
+                                </div>
+                            </div>
+                             <!-- Item Timeline Pendidikan 2 -->
+                             <div class="timeline-item left">
+                                <div class="timeline-content-card animate-on-scroll" data-animation="slideInLeft">
+                                    <div class="timeline-icon"><i class="fas fa-school"></i></div>
+                                    <span class="timeline-date">2019 - 2022</span>
+                                    <h4 class="timeline-title" data-lang-key="edu_2_title">Madrasah Aliyah (MA)</h4>
+                                    <p class="timeline-subtitle" data-lang-key="edu_2_institution">PP Modern Raudhatussalam Mahato</p>
+                                     <p class="timeline-description" data-lang-key="edu_2_desc">Lulus dari Jurusan Ilmu Pengetahuan Alam (IPA) dengan nilai rata-rata 85. Aktif dalam organisasi dan kegiatan ekstrakurikuler.</p>
+                                    <ul class="timeline-highlights">
+                                        <li data-lang-key="edu_2_hl_1"><i class="fas fa-check"></i> Jurusan IPA</li>
+                                        <li data-lang-key="edu_2_hl_2"><i class="fas fa-check"></i> Rata-rata 85</li>
+                                        <li data-lang-key="edu_2_hl_3"><i class="fas fa-check"></i> Aktif Organisasi</li>
+                                    </ul>
+                                    <div class="timeline-tags"><span>SMA</span><span>Pesantren</span><span>IPA</span></div>
+                                </div>
+                            </div>
+                            <!-- Item Timeline Pendidikan 3 -->
+                            <div class="timeline-item right">
+                                <div class="timeline-content-card animate-on-scroll" data-animation="slideInRight">
+                                     <div class="timeline-icon"><i class="fas fa-school"></i></div>
+                                    <span class="timeline-date">2016 - 2019</span>
+                                    <h4 class="timeline-title" data-lang-key="edu_3_title">Madrasah Tsanawiyah (MTs)</h4>
+                                    <p class="timeline-subtitle" data-lang-key="edu_3_institution">PP Modern Raudhatussalam Mahato</p>
+                                    <p class="timeline-description" data-lang-key="edu_3_desc">Menyelesaikan pendidikan menengah pertama berbasis agama Islam. Aktif dalam berbagai kegiatan dan lomba.</p>
+                                    <ul class="timeline-highlights">
+                                        <li data-lang-key="edu_3_hl_1"><i class="fas fa-check"></i> Pendidikan Menengah Pertama</li>
+                                        <li data-lang-key="edu_3_hl_2"><i class="fas fa-check"></i> Aktif Ekstrakurikuler</li>
+                                    </ul>
+                                    <div class="timeline-tags"><span>SMP</span><span>Pesantren</span></div>
+                                </div>
+                            </div>
+                             <!-- Item Timeline Pendidikan 4 -->
+                            <div class="timeline-item left">
+                                <div class="timeline-content-card animate-on-scroll" data-animation="slideInLeft">
+                                    <div class="timeline-icon"><i class="fas fa-child"></i></div>
+                                    <span class="timeline-date">2010 - 2016</span>
+                                     <h4 class="timeline-title" data-lang-key="edu_4_title">Sekolah Dasar (SD)</h4>
+                                     <p class="timeline-subtitle" data-lang-key="edu_4_institution">SDN Afd.c Aek Raso</p>
+                                     <p class="timeline-description" data-lang-key="edu_4_desc">Menyelesaikan pendidikan dasar. Pernah meraih prestasi dalam lomba catur dan matematika tingkat kabupaten.</p>
+                                     <ul class="timeline-highlights">
+                                         <li data-lang-key="edu_4_hl_1"><i class="fas fa-check"></i> Juara Lomba Catur</li>
+                                         <li data-lang-key="edu_4_hl_2"><i class="fas fa-check"></i> Juara Matematika</li>
+                                     </ul>
+                                     <div class="timeline-tags"><span>SD</span><span>Prestasi</span></div>
+                                </div>
+                            </div>
+                            <!-- Tambahkan lebih banyak item pendidikan jika ada -->
+                        </div>
+                    </div>
+
+                     <!-- Bagian Sertifikasi & Kursus (Contoh Integrasi) -->
+                     <div class="timeline-wrapper certifications-timeline animate-on-scroll" data-animation="fadeInUp" data-delay="0.4">
+                         <h3 class="timeline-group-title"><i class="fas fa-certificate"></i> <span data-lang-key="experience_certs_title">Sertifikasi & Kursus</span></h3>
+                         <div class="certifications-grid">
+                             <!-- Contoh Sertifikat/Kursus -->
+                             <div class="certification-item tooltip" data-tooltip="Klik untuk verifikasi">
+                                 <img src="images/logos/dicoding-logo.png" alt="Dicoding Logo" class="cert-logo">
+                                 <div class="cert-info">
+                                     <h5 data-lang-key="cert_1_title">Dasar Pemrograman Web</h5>
+                                     <p><span data-lang-key="cert_issuer">Penerbit:</span> Dicoding</p>
+                                     <p><span data-lang-key="cert_date">Tanggal:</span> Juni 2024</p>
+                                 </div>
+                                 <a href="[LINK_VERIFIKASI_DICODING]" target="_blank" class="cert-verify-link"><i class="fas fa-external-link-alt"></i></a>
+                             </div>
+                             <div class="certification-item tooltip" data-tooltip="Klik untuk verifikasi">
+                                 <img src="images/logos/coursera-logo.png" alt="Coursera Logo" class="cert-logo">
+                                 <div class="cert-info">
+                                     <h5 data-lang-key="cert_2_title">Google Data Analytics</h5>
+                                     <p><span data-lang-key="cert_issuer">Penerbit:</span> Coursera (Google)</p>
+                                     <p><span data-lang-key="cert_date">Tanggal:</span> Desember 2024</p>
+                                 </div>
+                                 <a href="[LINK_VERIFIKASI_COURSERA]" target="_blank" class="cert-verify-link"><i class="fas fa-external-link-alt"></i></a>
+                             </div>
+                             <div class="certification-item tooltip" data-tooltip="Klik untuk verifikasi">
+                                 <img src="images/logos/coursera-logo.png" alt="Coursera Logo" class="cert-logo">
+                                  <div class="cert-info">
+                                     <h5 data-lang-key="cert_3_title">Microsoft Business Analyst</h5>
+                                     <p><span data-lang-key="cert_issuer">Penerbit:</span> Coursera (Microsoft)</p>
+                                     <p><span data-lang-key="cert_date">Tanggal:</span> Februari 2024</p>
+                                  </div>
+                                 <a href="[LINK_VERIFIKASI_COURSERA_MS]" target="_blank" class="cert-verify-link"><i class="fas fa-external-link-alt"></i></a>
+                             </div>
+                             <!-- Tambahkan sertifikat lain -->
+                             <div class="certification-item more-certs">
+                                 <a href="#certificates" class="btn btn-tertiary"> <!-- Link ke bagian sertifikat terpisah jika ada -->
+                                     <i class="fas fa-ellipsis-h"></i> <span data-lang-key="certs_view_all">Lihat Semua</span>
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </section>
+        <!-- Bagian Pengalaman & Pendidikan Selesai -->
+
+        <!-- Bagian Testimoni Mulai -->
+        <section class="testimonials-section section" id="testimonials">
+             <div class="container testimonials-container">
+                 <!-- Header Bagian -->
+                 <div class="section-header text-center animate-on-scroll" data-animation="fadeInDown">
+                    <h2 class="section-title" data-lang-key="testimonials_title">Apa Kata Mereka</h2>
+                    <p class="section-subtitle" data-lang-key="testimonials_subtitle">Testimoni dari klien dan rekan kerja.</p>
+                    <div class="section-divider"></div>
+                 </div>
+
+                 <!-- Slider Testimoni (Implementasi JS diperlukan, misal: Slick Slider atau Swiper) -->
+                 <div class="testimonial-slider-wrapper animate-on-scroll" data-animation="fadeInUp">
+                     <div class="testimonial-slider" id="testimonial-slider">
+                         <!-- Slide Testimoni 1 -->
+                         <div class="testimonial-slide">
+                             <div class="testimonial-card">
+                                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <p class="testimonial-text" data-lang-key="testi_1_text">
+                                    "Eka sangat membantu dalam mengembangkan website profil perusahaan kami. Dia cepat tanggap, komunikatif, dan hasil kerjanya melebihi ekspektasi. Sangat direkomendasikan!"
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="images/avatars/client-pertamina.png" alt="Avatar Klien Pertamina" class="author-avatar lazyload" data-src="images/avatars/client-pertamina.jpg">
+                                    <div class="author-info">
+                                        <span class="author-name" data-lang-key="testi_1_name">Bapak [Nama Manajer ICT]</span>
+                                        <span class="author-title" data-lang-key="testi_1_title">Manajer ICT, PT Pertamina Hulu Rokan Rantau</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide Testimoni 2 -->
+                         <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                                <p class="testimonial-text" data-lang-key="testi_2_text">
+                                    "Sebagai sesama mahasiswa, saya kagum dengan dedikasi Eka dalam belajar dan mengerjakan proyek. Dia selalu punya solusi kreatif dan tidak ragu berbagi ilmu."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="images/avatars/avatar-placeholder.png" alt="Avatar Rekan Mahasiswa" class="author-avatar lazyload" data-src="images/avatars/rekan-mahasiswa.jpg">
+                                    <div class="author-info">
+                                        <span class="author-name" data-lang-key="testi_2_name">[Nama Rekan Mahasiswa]</span>
+                                        <span class="author-title" data-lang-key="testi_2_title">Mahasiswa Teknologi Informasi, UMSU</span>
+                                    </div>
+                                </div>
+                                 <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <!-- Contoh 4 bintang -->
+                                 </div>
+                            </div>
+                         </div>
+                         <!-- Slide Testimoni 3 (Placeholder) -->
+                         <div class="testimonial-slide">
+                             <div class="testimonial-card">
+                                 <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                                 <p class="testimonial-text" data-lang-key="testi_3_text">
+                                     "Template PPT dari Mahir PPT sangat membantu presentasi saya. Desainnya modern dan animasinya halus. Terima kasih Eka!"
+                                 </p>
+                                 <div class="testimonial-author">
+                                    <img src="images/avatars/avatar-placeholder.png" alt="Avatar Pengguna MahirPPT" class="author-avatar lazyload" data-src="images/avatars/user-mahirppt.jpg">
+                                     <div class="author-info">
+                                         <span class="author-name" data-lang-key="testi_3_name">[Nama Pengguna]</span>
+                                         <span class="author-title" data-lang-key="testi_3_title">Profesional / Mahasiswa</span>
+                                     </div>
+                                 </div>
+                                 <div class="testimonial-rating">
+                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <!-- Contoh 4.5 bintang -->
+                                 </div>
+                             </div>
+                         </div>
+                         <!-- Tambahkan slide testimoni lainnya -->
+                     </div>
+                     <!-- Navigasi Slider (Opsional) -->
+                     <div class="slider-nav">
+                         <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                         <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                     </div>
+                     <div class="slider-dots"></div> <!-- Dots indikator -->
+                 </div>
+
+                 <!-- Ajakan Aksi untuk Memberi Testimoni -->
+                 <div class="add-testimonial-cta text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.3">
+                     <p data-lang-key="testimonials_cta_text">Pernah bekerja sama dengan saya? Saya sangat menghargai feedback Anda.</p>
+                     <a href="#contact" class="btn btn-secondary" data-lang-key="testimonials_cta_button"><i class="fas fa-pen"></i> Berikan Testimoni</a>
+                 </div>
+             </div>
+         </section>
+         <!-- Bagian Testimoni Selesai -->
+
+         <!-- Bagian Blog Preview Mulai (Opsional) -->
+        <section class="blog-preview-section section" id="blog-preview">
+             <div class="container blog-preview-container">
+                 <!-- Header Bagian -->
+                 <div class="section-header text-center animate-on-scroll" data-animation="fadeInDown">
+                     <h2 class="section-title" data-lang-key="blog_title">Tulisan Terbaru</h2>
+                     <p class="section-subtitle" data-lang-key="blog_subtitle">Berbagi pemikiran, tutorial, dan update terbaru.</p>
+                     <div class="section-divider"></div>
+                 </div>
+
+                 <!-- Grid Artikel Blog -->
+                 <div class="blog-grid">
+                     <!-- Artikel Blog 1 -->
+                     <article class="blog-post-card animate-on-scroll" data-animation="fadeInUp">
+                         <a href="#" class="post-thumbnail-link"> <!-- Link ke artikel penuh -->
+                             <img src="images/placeholder-blog.png" data-src="images/blog/artikel-1-thumb.jpg" alt="Thumbnail Artikel 1" class="post-thumbnail lazyload">
+                         </a>
+                         <div class="post-content">
+                             <div class="post-meta">
+                                 <span class="post-category" data-lang-key="blog_cat_webdev">Web Development</span>
+                                 <span class="post-date">15 Juli 2024</span>
+                                 <span class="post-read-time"><i class="far fa-clock"></i> <span data-lang-key="blog_read_time" data-minutes="5">5 Menit Baca</span></span>
+                             </div>
+                             <h3 class="post-title"><a href="#" data-lang-key="blog_1_title">5 Tren Front-End Development di Tahun 2025</a></h3>
+                             <p class="post-excerpt" data-lang-key="blog_1_excerpt">
+                                 Dunia front-end terus berkembang pesat. Simak beberapa tren kunci yang perlu diperhatikan oleh para pengembang...
+                             </p>
+                             <a href="#" class="btn btn-tertiary read-more-btn" data-lang-key="blog_read_more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                         </div>
+                     </article>
+
+                     <!-- Artikel Blog 2 -->
+                     <article class="blog-post-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.1">
+                         <a href="#" class="post-thumbnail-link">
+                             <img src="images/placeholder-blog.png" data-src="images/blog/artikel-2-thumb.jpg" alt="Thumbnail Artikel 2" class="post-thumbnail lazyload">
+                         </a>
+                         <div class="post-content">
+                              <div class="post-meta">
+                                 <span class="post-category" data-lang-key="blog_cat_uiux">UI/UX Design</span>
+                                 <span class="post-date">10 Juli 2024</span>
+                                 <span class="post-read-time"><i class="far fa-clock"></i> <span data-lang-key="blog_read_time" data-minutes="7">7 Menit Baca</span></span>
+                             </div>
+                             <h3 class="post-title"><a href="#" data-lang-key="blog_2_title">Pentingnya Desain Sistem dalam Proyek Skala Besar</a></h3>
+                              <p class="post-excerpt" data-lang-key="blog_2_excerpt">
+                                 Desain sistem bukan hanya tentang komponen UI, tapi fondasi untuk konsistensi dan efisiensi pengembangan...
+                             </p>
+                             <a href="#" class="btn btn-tertiary read-more-btn" data-lang-key="blog_read_more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                         </div>
+                     </article>
+
+                     <!-- Artikel Blog 3 -->
+                     <article class="blog-post-card animate-on-scroll" data-animation="fadeInUp" data-delay="0.2">
+                          <a href="#" class="post-thumbnail-link">
+                             <img src="images/placeholder-blog.png" data-src="images/blog/artikel-3-thumb.jpg" alt="Thumbnail Artikel 3" class="post-thumbnail lazyload">
+                         </a>
+                         <div class="post-content">
+                              <div class="post-meta">
+                                 <span class="post-category" data-lang-key="blog_cat_career">Karir</span>
+                                 <span class="post-date">5 Juli 2024</span>
+                                 <span class="post-read-time"><i class="far fa-clock"></i> <span data-lang-key="blog_read_time" data-minutes="4">4 Menit Baca</span></span>
+                             </div>
+                             <h3 class="post-title"><a href="#" data-lang-key="blog_3_title">Tips Membangun Portofolio Developer yang Menarik</a></h3>
+                              <p class="post-excerpt" data-lang-key="blog_3_excerpt">
+                                 Portofolio adalah kunci penting dalam mencari kerja. Berikut beberapa tips agar portofolio Anda menonjol...
+                             </p>
+                             <a href="#" class="btn btn-tertiary read-more-btn" data-lang-key="blog_read_more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                         </div>
+                     </article>
+                 </div>
+
+                 <!-- Tombol Menuju Halaman Blog Penuh -->
+                 <div class="blog-view-all text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.3">
+                     <a href="/blog" class="btn btn-secondary" data-lang-key="blog_view_all_button"><i class="fas fa-newspaper"></i> Kunjungi Blog Saya</a>
+                 </div>
+             </div>
+         </section>
+         <!-- Bagian Blog Preview Selesai -->
+
+        <!-- Bagian Kontak Mulai -->
+        <section class="contact-section section" id="contact">
+            <div class="container contact-container">
+                <!-- Header Bagian -->
+                <div class="section-header text-center animate-on-scroll" data-animation="fadeInDown">
+                    <h2 class="section-title" data-lang-key="contact_title">Hubungi Saya</h2>
+                    <p class="section-subtitle" data-lang-key="contact_subtitle">Mari terhubung! Jangan ragu untuk mengirim pesan atau pertanyaan.</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="contact-content-grid">
+                    <!-- Informasi Kontak Langsung -->
+                    <div class="contact-info-direct animate-on-scroll" data-animation="fadeInLeft">
+                        <h3 data-lang-key="contact_info_title">Informasi Kontak</h3>
+                        <p data-lang-key="contact_info_desc">Anda bisa menghubungi saya langsung melalui:</p>
+                        <ul class="contact-details-list">
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:eka.ckp16799@gmail.com">eka.ckp16799@gmail.com</a></li>
+                            <li><i class="fas fa-phone"></i> <a href="tel:+6282392115909">+62 823-9211-5909</a></li>
+                            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/+6282392115909" target="_blank">WhatsApp (+62 823...)</a></li>
+                            <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/arifex21" target="_blank">LinkedIn Profile</a></li>
+                            <li><i class="fas fa-map-marker-alt"></i> <span data-lang-key="contact_location">Medan, Sumatera Utara, Indonesia</span></li>
+                        </ul>
+                        <h4 data-lang-key="contact_social_title">Temukan Saya di Sosial Media:</h4>
+                        <div class="contact-social-links">
+                           <a href="https://github.com/dresar" target="_blank" aria-label="GitHub" class="social-icon-contact tooltip" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/arifex21" target="_blank" aria-label="LinkedIn" class="social-icon-contact tooltip" data-tooltip="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://instagram.com/arif_ex21" target="_blank" aria-label="Instagram" class="social-icon-contact tooltip" data-tooltip="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://web.facebook.com/profile.php?id=100051313127762" target="_blank" aria-label="Facebook" class="social-icon-contact tooltip" data-tooltip="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="https://t.me/arif_ex21" target="_blank" aria-label="Telegram" class="social-icon-contact tooltip" data-tooltip="Telegram"><i class="fab fa-telegram"></i></a>
+                        </div>
+                         <!-- Placeholder Peta (Implementasi JS diperlukan, misal: LeafletJS) -->
+                        <div class="contact-map-placeholder" id="contact-map">
+                             <p data-lang-key="contact_map_loading">Memuat peta...</p>
+                        </div>
+                    </div>
+
+                    <!-- Formulir Kontak -->
+                    <div class="contact-form-wrapper animate-on-scroll" data-animation="fadeInRight">
+                        <h3 data-lang-key="contact_form_title">Kirim Pesan Langsung</h3>
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-name" data-lang-key="form_name">Nama Anda</label>
+                                    <div class="input-group">
+                                        <span class="input-icon"><i class="fas fa-user"></i></span>
+                                        <input type="text" id="contact-name" name="name" placeholder="Masukkan nama lengkap" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-email" data-lang-key="form_email">Email Anda</label>
+                                     <div class="input-group">
+                                        <span class="input-icon"><i class="fas fa-envelope"></i></span>
+                                        <input type="email" id="contact-email" name="email" placeholder="Masukkan alamat email" required>
+                                     </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-subject" data-lang-key="form_subject">Subjek</label>
+                                 <div class="input-group">
+                                    <span class="input-icon"><i class="fas fa-tag"></i></span>
+                                    <input type="text" id="contact-subject" name="subject" placeholder="Subjek pesan Anda" required>
+                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message" data-lang-key="form_message">Pesan</label>
+                                <div class="input-group">
+                                    <span class="input-icon textarea-icon"><i class="fas fa-comment-dots"></i></span>
+                                     <textarea id="contact-message" name="message" rows="6" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                                </div>
+                            </div>
+                            <!-- Contoh Honeypot sederhana untuk anti-spam -->
+                            <div class="form-group honeypot">
+                                <label for="contact-website">Website (jangan diisi)</label>
+                                <input type="text" id="contact-website" name="website">
+                            </div>
+                             <!-- Persetujuan (jika diperlukan) -->
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="contact-consent" name="consent" required>
+                                <label for="contact-consent" data-lang-key="form_consent">Saya setuju data saya diproses sesuai kebijakan privasi.</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-gradient btn-submit-contact" id="submit-contact-form">
+                                <span class="btn-text" data-lang-key="form_send_button">Kirim Pesan</span>
+                                <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                                <span class="loading-spinner" style="display: none;"></span> <!-- Spinner untuk loading -->
+                            </button>
+                            <div class="form-status-message" id="contact-form-status"></div> <!-- Untuk pesan sukses/error -->
+                        </form>
+                    </div>
+                </div>
+
+                 <!-- Fitur Interaktif Tambahan (Contoh: FAQ Accordion) -->
+                <div class="contact-faq-section animate-on-scroll" data-animation="fadeInUp" data-delay="0.3">
+                     <h3 class="faq-title" data-lang-key="contact_faq_title">Pertanyaan Umum (FAQ)</h3>
+                    <div class="faq-accordion">
+                        <!-- Item FAQ 1 -->
+                        <div class="faq-item">
+                             <button class="faq-question">
+                                <span data-lang-key="faq_1_q">Berapa lama waktu pengerjaan proyek website?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p data-lang-key="faq_1_a">Waktu pengerjaan bervariasi tergantung kompleksitas. Proyek sederhana bisa 1-2 minggu, sementara proyek lebih besar bisa memakan waktu beberapa bulan. Mari diskusikan kebutuhan Anda untuk estimasi yang lebih akurat.</p>
+                            </div>
+                        </div>
+                        <!-- Item FAQ 2 -->
+                        <div class="faq-item">
+                             <button class="faq-question">
+                                <span data-lang-key="faq_2_q">Apakah Anda mengerjakan proyek di luar Medan?</span>
+                                <i class="fas fa-chevron-down"></i>
+                             </button>
+                            <div class="faq-answer">
+                                <p data-lang-key="faq_2_a">Tentu saja! Saya dapat bekerja secara remote untuk klien di mana saja. Komunikasi dapat dilakukan melalui email, telepon, atau video conference.</p>
+                            </div>
+                        </div>
+                        <!-- Item FAQ 3 -->
+                         <div class="faq-item">
+                             <button class="faq-question">
+                                <span data-lang-key="faq_3_q">Bagaimana proses pembayaran untuk layanan freelance?</span>
+                                 <i class="fas fa-chevron-down"></i>
+                             </button>
+                             <div class="faq-answer">
+                                <p data-lang-key="faq_3_a">Biasanya saya meminta uang muka (misalnya 30-50%) sebelum memulai proyek, dan sisanya dilunasi setelah proyek selesai dan disetujui. Metode pembayaran bisa dinegosiasikan (transfer bank, dll.).</p>
+                             </div>
+                         </div>
+                         <!-- Tambahkan item FAQ lainnya -->
+                    </div>
+                 </div>
+
+            </div>
+        </section>
+        <!-- Bagian Kontak Selesai -->
+
+    </main>
+    <!-- Area Konten Utama Selesai -->
+
+    <!-- Footer Situs Mulai -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-widgets-area">
+                <!-- Widget 1: Tentang Singkat -->
+                <div class="footer-widget widget-about animate-on-scroll" data-animation="fadeInUp">
+                    <div class="footer-logo logo">
+                         <a href="#hero" aria-label="Beranda">
+                            <svg class="logo-svg footer-svg" width="30" height="30" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="5" fill="none" /><text x="50" y="62" font-family="'Space Grotesk', sans-serif" font-size="40" fill="currentColor" text-anchor="middle" font-weight="bold">ESM</text></svg>
+                            <span class="logo-text-full" data-lang-key="logo_text">Eka S. Maulana</span>
+                         </a>
+                    </div>
+                    <p class="footer-widget-text" data-lang-key="footer_about_text">Pengembang web berdedikasi untuk menciptakan solusi digital yang bermakna dan efisien.</p>
+                     <div class="footer-social-links">
+                        <a href="https://github.com/dresar" target="_blank" aria-label="GitHub" class="social-icon-footer"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/arifex21" target="_blank" aria-label="LinkedIn" class="social-icon-footer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/arif_ex21" target="_blank" aria-label="Instagram" class="social-icon-footer"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Widget 2: Tautan Cepat -->
+                <div class="footer-widget widget-links animate-on-scroll" data-animation="fadeInUp" data-delay="0.1">
+                    <h4 class="footer-widget-title" data-lang-key="footer_links_title">Tautan Cepat</h4>
+                    <ul class="footer-link-list">
+                        <li><a href="#about" data-lang-key="nav_about">Tentang</a></li>
+                        <li><a href="#skills" data-lang-key="nav_skills">Keahlian</a></li>
+                        <li><a href="#portfolio" data-lang-key="nav_portfolio">Portofolio</a></li>
+                        <li><a href="#services" data-lang-key="nav_services">Layanan</a></li>
+                        <li><a href="#contact" data-lang-key="nav_contact">Kontak</a></li>
+                        <li><a href="/blog" data-lang-key="footer_link_blog">Blog</a></li> <!-- Contoh link ke halaman lain -->
+                    </ul>
+                </div>
+
+                 <!-- Widget 3: Kontak Info -->
+                <div class="footer-widget widget-contact animate-on-scroll" data-animation="fadeInUp" data-delay="0.2">
+                    <h4 class="footer-widget-title" data-lang-key="footer_contact_title">Info Kontak</h4>
+                    <ul class="footer-contact-list">
+                         <li><i class="fas fa-map-marker-alt"></i> <span data-lang-key="contact_location">Medan, Indonesia</span></li>
+                         <li><i class="fas fa-phone"></i> <a href="tel:+6282392115909">+62 823-9211-5909</a></li>
+                         <li><i class="fas fa-envelope"></i> <a href="mailto:eka.ckp16799@gmail.com">eka.ckp16799@gmail.com</a></li>
+                    </ul>
+                </div>
+
+                 <!-- Widget 4: Newsletter (Contoh) -->
+                 <div class="footer-widget widget-newsletter animate-on-scroll" data-animation="fadeInUp" data-delay="0.3">
+                     <h4 class="footer-widget-title" data-lang-key="footer_newsletter_title">Langganan Newsletter</h4>
+                     <p data-lang-key="footer_newsletter_text">Dapatkan update terbaru langsung ke inbox Anda.</p>
+                     <form class="newsletter-form">
+                         <input type="email" placeholder="Masukkan email Anda" required>
+                         <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                     </form>
+                     <p class="newsletter-consent" data-lang-key="footer_newsletter_consent">Dengan berlangganan, Anda setuju dengan kebijakan privasi kami.</p>
+                 </div>
+            </div>
+
+            <!-- Bagian Bawah Footer (Copyright & Tautan Tambahan) -->
+            <div class="footer-bottom">
+                <p class="footer-copyright" data-lang-key="footer_copyright_main">&copy; 2024 Eka Syarif Maulana. Semua hak cipta dilindungi.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#" data-lang-key="footer_privacy">Kebijakan Privasi</a></li>
+                    <li><a href="#" data-lang-key="footer_terms">Syarat Layanan</a></li>
+                    <li><a href="#" data-lang-key="footer_sitemap">Peta Situs</a></li>
+                </ul>
+            </div>
+        </div>
+         <!-- Elemen Dekoratif Footer -->
+        <div class="footer-decoration"></div>
+    </footer>
+    <!-- Footer Situs Selesai -->
+
+    <!-- Tombol Kembali ke Atas Mulai -->
+    <button class="back-to-top-btn" id="back-to-top" aria-label="Kembali ke atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- Tombol Kembali ke Atas Selesai -->
+
+    <!-- Modal Global (Contoh: Untuk notifikasi atau konfirmasi umum) -->
+     <div class="modal global-modal" id="global-info-modal">
+         <div class="modal-overlay"></div>
+         <div class="modal-content-wrapper">
+             <button class="modal-close-btn icon-btn"><i class="fas fa-times"></i></button>
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h3 id="global-modal-title">[Judul Modal]</h3>
+                 </div>
+                 <div class="modal-body">
+                     <p id="global-modal-message">[Pesan Modal]</p>
+                 </div>
+                 <div class="modal-footer">
+                     <button class="btn btn-primary close-global-modal-btn" data-lang-key="modal_close_button">Tutup</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+    <!-- Container Notifikasi (Untuk pesan toast/snackbar) -->
+    <div class="notification-container" id="notification-container">
+        <!-- Notifikasi akan ditambahkan oleh JS -->
+    </div>
+
+</body>
+
+</html>
